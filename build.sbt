@@ -12,5 +12,5 @@ scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature", "-Xfatal-warning
 
 libraryDependencies ++= Seq(
   "org.scalacheck"    %% "scalacheck"               % "1.12.4"  % "test",
-  "com.typesafe.akka" %% "akka-stream-experimental" % "1.0-RC4"
+  "com.typesafe.akka" %% "akka-stream-experimental" % "1.0"
 )
