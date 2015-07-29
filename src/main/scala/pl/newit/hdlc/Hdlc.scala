@@ -5,7 +5,6 @@ import akka.stream.stage.{Context, PushStage}
 import akka.util.ByteString
 import pl.newit.hdlc.impl.Framing
 
-
 object Hdlc {
   case class Settings(
     /** Denotes beginning and the end of the frame. */
@@ -37,7 +36,7 @@ class Hdlc(val settings: Hdlc.Settings) {
         while (it.hasNext) it.next() match {
           case settings.escape if it.hasNext ⇒ builder.putByte((it.next() ^ settings.escapeBit).toByte)
           case settings.escape               ⇒ throw new EofException(frame, "Unexpected end of frame after control escape octet")
-          case b                              ⇒ builder.putByte(b)
+          case b                             ⇒ builder.putByte(b)
         }
 
         builder.result()
